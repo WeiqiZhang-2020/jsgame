@@ -1,24 +1,24 @@
-.hallo{
-    text-align: center;
-    align-items: center;
-    font-size: xxx-large;
+.hallo {
+	text-align: center;
+	align-items: center;
+	font-size: xxx-large;
 }
 
-.myButton{
-    display: block;
-    margin: auto;
+.my-button {
+	display: block;
+	margin: auto;
 }
 
-.game{
-    display: flex;
-    justify-content: center;
+.game {
+	display: flex;
+	justify-content: center;
 }
 
-.gameBox{
-    text-align: center;
-    font-size: xx-large;
-    height: 70px;
-    width: 70px;
-    border-radius: 15px;
-    background-color: orange;
+.game-box {
+	text-align: center;
+	font-size: xx-large;
+	height: 70px;
+	width: 70px;
+	border-radius: 15px;
+	background-color: orange;
 }
