@@ -2,9 +2,12 @@ const halloClass = document.querySelector(".hallo");
 const myButton = document.querySelector("input[type = button]");
 let mySwitch = 0;
 let counter =0;
-let targetId =  0;
-let range = [];
-let winCounter = 0;
+let targetId =0;
+let range =[];
+let winCounter =0;
+let myNames =[];
+let matches =[];
+let html;
 setInterval(() => {
 	if(mySwitch === 0){
 		halloClass.style.color = "rgb(" + randomNumber()+","+ randomNumber() + "," +randomNumber()+ ")";
@@ -73,4 +76,45 @@ function idChecker(e){
 		document.getElementById(''+(e)).innerHTML = showM(position);
 	}
 }
+
+
+//auto fill
+
+const search = document.getElementById('pokemon-name');
+const htmlResults = document.querySelector(".result ul");
+const setArray = async () => {
+	const myResponse = fetch('https://pokeapi.co/api/v2/pokemon/?limit=70')
+	.then(res => res.json())
+	.then(value => {
+		for (let x in value.results){
+			if(!myNames.includes(value.results[x].name)){
+				myNames.push(value.results[x].name);
+			}
+		}
+	});
+}
+const searchStatus =searchText => {
+	matches = myNames.sort().filter(name => {
+		return name.toLowerCase().includes(searchText)&& (name.slice(0,1) === searchText.slice(0,1));
+	});
+if (searchText.length === 0){
+	matches = [];
+}
+	outputHtml(matches);
+}
+
+const outputHtml = arr => {
+	
+	if (arr.length > 0){
+		 html = matches.map(output =>(`
+				<div>${output}</div>`)).join('');
+	}
+	if(arr.length === 0){
+		htmlResults.innerHTML = '';
+	}else{
+	htmlResults.innerHTML = html;
+	}
+}
+search.addEventListener('input',() => searchStatus(search.value));
 mysetid();
+setArray();
