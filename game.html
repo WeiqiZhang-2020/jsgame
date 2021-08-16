@@ -8,28 +8,38 @@
 	<link rel="stylesheet" href = "game.css">
 </head>
 <body>
-	<div class = "button-box">
-		<p class = "hallo">HALLO</p>
-		<input type="button" value = "pause" class = "my-button">
+	<div class="button-box">
+		<p class="hallo">HALLO</p>
+		<input type="button" value = "pause" class="my-button">
 	</div>
-	<div class = "game">
+	<div class="game">
 		<table>
 			<tr>
-				<td class = "game-box">M</td>
-				<td class = "game-box">M</td>
-				<td class = "game-box">M</td>
+				<td class="game-box">M</td>
+				<td class="game-box">M</td>
+				<td class="game-box">M</td>
 			</tr>
 			<tr>
-				<td class = "game-box"></td>
-				<td class = "game-box">M</td>
-				<td class = "game-box"></td>
+				<td class="game-box"></td>
+				<td class="game-box">M</td>
+				<td class="game-box"></td>
 			</tr>
 			<tr>
-				<td class = "game-box"></td>
-				<td class = "game-box">M</td>
-				<td class = "game-box"></td>
+				<td class="game-box"></td>
+				<td class="game-box">M</td>
+				<td class="game-box"></td>
 			</tr>
 		</table>
+	</div>
+	<div class="searchArea">
+	 <div class="pokemon">
+		<div><label for="pokemon-name">Type Ahead Search with API</label></div>
+		<div><input type="text" name="pokemon-name" id="pokemon-name"></div>
+		<div class = "result">
+			<ul>
+			</ul>
+		</div>
+	 </div>
 	</div>
 	<script src= "game.js"></script>
 </body>
