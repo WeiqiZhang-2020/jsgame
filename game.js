@@ -7,7 +7,10 @@ let range =[];
 let winCounter =0;
 let myNames =[];
 let matches =[];
+let stateMatches =[];
 let html;
+let htmlForState;
+const stateName =['WA','NA','DS','BC','TG','OL','GG','OP','LK','CC','UL'];
 setInterval(() => {
 	if(mySwitch === 0){
 		halloClass.style.color = "rgb(" + randomNumber()+","+ randomNumber() + "," +randomNumber()+ ")";
@@ -81,7 +84,10 @@ function idChecker(e){
 //auto fill
 
 const search = document.getElementById('pokemon-name');
+const stateSearch = document.getElementById('state-name');
 const htmlResults = document.querySelector(".result ul");
+const stateResults = document.querySelector(".state-result ul");
+
 const setArray = async () => {
 	const myResponse = fetch('https://pokeapi.co/api/v2/pokemon/?limit=70')
 	.then(res => res.json())
@@ -103,10 +109,33 @@ if (searchText.length === 0){
 	outputHtml(matches);
 }
 
+const state =searchText => {
+	stateMatches = stateName.sort().filter(name => {
+		return name.includes(searchText);
+	});
+if (searchText.length === 0){
+	stateMatches = [];
+}
+	outputHtml2(stateMatches);
+}
+const outputHtml2 = arr => {
+	console.log(arr);
+	if (arr.length > 0){
+		htmlForState = arr.map(output =>(`
+				<div>${output}</div>`)).join('');
+	}
+	console.log(htmlForState);
+	if(arr.length === 0){
+		stateResults.innerHTML = '';
+	}else{
+		stateResults.innerHTML = htmlForState;
+	}
+}
+
 const outputHtml = arr => {
 	
 	if (arr.length > 0){
-		 html = matches.map(output =>(`
+		 html = arr.map(output =>(`
 				<div>${output}</div>`)).join('');
 	}
 	if(arr.length === 0){
@@ -116,5 +145,6 @@ const outputHtml = arr => {
 	}
 }
 search.addEventListener('input',() => searchStatus(search.value));
+stateSearch.addEventListener('input',() => state(stateSearch.value));
 mysetid();
 setArray();

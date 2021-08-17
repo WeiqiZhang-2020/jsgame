@@ -22,7 +22,7 @@
 	border-radius: 15px;
 	background-color: orange;
 }
-.pokemon{
+.pokemon, .state{
 	display:block;
 	/* justify-content: center;
 	align-items: center;
@@ -30,23 +30,23 @@
 	max-width: 300px; */
 }
 
-.pokemon div{
+.pokemon div, .state div{
 	text-align: center;
 
 }
 
-.pokemon ul{
+.pokemon ul, .state ul{
 	
 	margin: 0;
 	padding: 0;
 	
 }
-#pokemon-name {
+#pokemon-name , #state-name{
 	width: 300px;
 	height: 20px;
 }
 
-.pokemon ul div{
+.pokemon ul div, .state ul div{
 	margin: auto;
 	width: 308px;
 	height: 26px;
